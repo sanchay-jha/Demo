@@ -76,4 +76,14 @@ if st.button("Scrape Flipkart"):
             st.success("✅ Scraping completed and data saved to Excel!")
             with open(filename, "rb") as f:
                 st.download_button(
-                    label="📥 Download Excel F
+                    label="📥 Download Excel File",
+                    data=f,
+                    file_name=filename,
+                    mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+                )
+
+            # Optional: Clean up file after download
+            # os.remove(filename)
+
+        except Exception as e:
+            st.error(f"❌ Error: {e}")
